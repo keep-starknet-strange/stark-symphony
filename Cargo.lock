@@ -1418,6 +1418,7 @@ dependencies = [
  "anyhow",
  "base64",
  "clap",
+ "hex",
  "serde_json",
  "simfony",
  "simplicity-lang",
