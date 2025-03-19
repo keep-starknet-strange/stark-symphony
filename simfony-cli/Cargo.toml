@@ -9,6 +9,7 @@ path = "src/main.rs"
 
 [dependencies]
 simfony.workspace = true
+simplicity-lang.workspace = true
 anyhow = "1.0"
 clap = { version = "4.4", features = ["derive"] }
 base64 = "0.21"
