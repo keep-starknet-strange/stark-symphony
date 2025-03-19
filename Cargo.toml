@@ -4,3 +4,4 @@ resolver = "2"
 
 [workspace.dependencies]
 simfony = { git = "https://github.com/m-kus/simfony", rev = "a79cc9ef816b2f1bf8c905a964ccbc53a5f01305", features = ["serde"] }
+simplicity-lang = { git = "https://github.com/m-kus/rust-simplicity", rev = "d1b8a46aaee06808a66d859edf9e2fa701b725f1", features = ["test-utils"] }

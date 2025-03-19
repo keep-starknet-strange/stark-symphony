@@ -2,7 +2,9 @@ use anyhow::{Context, Result};
 use base64::display::Base64Display;
 use base64::engine::general_purpose::STANDARD;
 use clap::{Parser, Subcommand};
-use simfony::{dummy_env, simplicity::BitMachine, Arguments, CompiledProgram, WitnessValues};
+use simfony::{Arguments, CompiledProgram, WitnessValues};
+// use simfony::{dummy_env, simplicity::BitMachine};
+use simplicity::ffi::tests::{run_program, TestUpTo};
 use std::fs;
 use std::path::PathBuf;
 
@@ -134,11 +136,16 @@ fn handle_run(path: PathBuf, witness: Option<PathBuf>, param: Option<PathBuf>) -
     let witness = parse_witness(witness_content.as_deref())?;
     let satisfied = compiled.satisfy(witness).map_err(|e| anyhow::anyhow!(e))?;
 
-    let mut machine = BitMachine::for_program(satisfied.redeem());
-    let env = dummy_env::dummy();
-    let res = machine.exec(satisfied.redeem(), &env)?;
+    let (program_bytes, witness_bytes) = satisfied.redeem().encode_to_vec();
 
-    println!("Result: {}", res);
+    let _ = run_program(&program_bytes, &witness_bytes, TestUpTo::Everything)
+        .map_err(|e| anyhow::anyhow!("Failed to run program: {}", e))?;
+
+    // let mut machine = BitMachine::for_program(satisfied.redeem());
+    // let env = dummy_env::dummy();
+    // let res = machine.exec(satisfied.redeem(), &env)?;
+
+    //println!("Result: {}", res);
     Ok(())
 }
 
