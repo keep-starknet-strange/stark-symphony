@@ -22,7 +22,10 @@ pub fn spend_script_path(
     program: CompiledProgram,
     witness_values: WitnessValues,
 ) -> anyhow::Result<Transaction> {
-    let value = utxo.value.explicit().ok_or(anyhow::anyhow!("UTXO value is not explicit"))?;
+    let value = utxo
+        .value
+        .explicit()
+        .ok_or(anyhow::anyhow!("UTXO value is not explicit"))?;
     let tx = create_transaction(outpoint, address, value, 360);
 
     let script = create_script(&program)?;

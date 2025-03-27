@@ -9,7 +9,8 @@ use std::env;
 pub fn broadcast_tx(tx: Transaction) -> anyhow::Result<String> {
     let rpc_url = env::var("RPC_URL").map_err(|_| anyhow::anyhow!("RPC_URL is not set"))?;
     let rpc_user = env::var("RPC_USER").map_err(|_| anyhow::anyhow!("RPC_USER is not set"))?;
-    let rpc_password = env::var("RPC_PASSWORD").map_err(|_| anyhow::anyhow!("RPC_PASSWORD is not set"))?;
+    let rpc_password =
+        env::var("RPC_PASSWORD").map_err(|_| anyhow::anyhow!("RPC_PASSWORD is not set"))?;
 
     let tx_hex = encode::serialize_hex(&tx);
     let request = json!({
