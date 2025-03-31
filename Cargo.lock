@@ -1396,19 +1396,18 @@ checksum = "0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64"
 [[package]]
 name = "simfony"
 version = "0.1.0"
-source = "git+https://github.com/m-kus/simfony?rev=a79cc9ef816b2f1bf8c905a964ccbc53a5f01305#a79cc9ef816b2f1bf8c905a964ccbc53a5f01305"
+source = "git+https://github.com/uncomputable/simfony?rev=a933e66ce9441bfa4c23138b0ded7bf2c0f1eb9b#a933e66ce9441bfa4c23138b0ded7bf2c0f1eb9b"
 dependencies = [
  "base64",
  "either",
  "getrandom 0.2.15",
- "hex-conservative 0.1.2",
  "itertools",
  "miniscript",
  "pest",
  "pest_derive",
  "serde",
  "serde_json",
- "simplicity-lang",
+ "simplicity-lang 0.3.0 (git+https://github.com/uncomputable/rust-simplicity?branch=2025-03-fix-value)",
 ]
 
 [[package]]
@@ -1418,8 +1417,10 @@ dependencies = [
  "anyhow",
  "base64",
  "clap",
+ "hex",
  "serde_json",
  "simfony",
+ "simplicity-lang 0.3.0 (git+https://github.com/uncomputable/rust-simplicity?rev=4b83c05db330056ce84856b8c5b84b73c67a43cc)",
 ]
 
 [[package]]
@@ -1443,7 +1444,7 @@ dependencies = [
 [[package]]
 name = "simplicity-lang"
 version = "0.3.0"
-source = "git+https://github.com/m-kus/rust-simplicity?rev=d1b8a46aaee06808a66d859edf9e2fa701b725f1#d1b8a46aaee06808a66d859edf9e2fa701b725f1"
+source = "git+https://github.com/uncomputable/rust-simplicity?branch=2025-03-fix-value#4b83c05db330056ce84856b8c5b84b73c67a43cc"
 dependencies = [
  "bitcoin",
  "bitcoin_hashes 0.14.0",
@@ -1453,13 +1454,38 @@ dependencies = [
  "hex-conservative 0.1.2",
  "miniscript",
  "santiago",
- "simplicity-sys",
+ "simplicity-sys 0.3.0 (git+https://github.com/uncomputable/rust-simplicity?branch=2025-03-fix-value)",
+]
+
+[[package]]
+name = "simplicity-lang"
+version = "0.3.0"
+source = "git+https://github.com/uncomputable/rust-simplicity?rev=4b83c05db330056ce84856b8c5b84b73c67a43cc#4b83c05db330056ce84856b8c5b84b73c67a43cc"
+dependencies = [
+ "bitcoin",
+ "bitcoin_hashes 0.14.0",
+ "byteorder",
+ "elements",
+ "getrandom 0.2.15",
+ "hex-conservative 0.1.2",
+ "miniscript",
+ "santiago",
+ "simplicity-sys 0.3.0 (git+https://github.com/uncomputable/rust-simplicity?rev=4b83c05db330056ce84856b8c5b84b73c67a43cc)",
 ]
 
 [[package]]
 name = "simplicity-sys"
 version = "0.3.0"
-source = "git+https://github.com/m-kus/rust-simplicity?rev=d1b8a46aaee06808a66d859edf9e2fa701b725f1#d1b8a46aaee06808a66d859edf9e2fa701b725f1"
+source = "git+https://github.com/uncomputable/rust-simplicity?branch=2025-03-fix-value#4b83c05db330056ce84856b8c5b84b73c67a43cc"
+dependencies = [
+ "bitcoin_hashes 0.14.0",
+ "cc",
+]
+
+[[package]]
+name = "simplicity-sys"
+version = "0.3.0"
+source = "git+https://github.com/uncomputable/rust-simplicity?rev=4b83c05db330056ce84856b8c5b84b73c67a43cc#4b83c05db330056ce84856b8c5b84b73c67a43cc"
 dependencies = [
  "bitcoin_hashes 0.14.0",
  "cc",
